@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>*</pattern>
+        <template>I don't quite understand. Please enter 'Start' to begin.</template>
+    </category>
+   
+    <category>
+        <pattern>START</pattern>
+        <template>Please enter your name in the given format. (My name is ...)</template>
+    </category>
+   
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>Hello there <set name = "username"><star /></set>! I am Kenobi, your career counselor bot. Would you like to begin your counseling?
+            <button>
+                <text>Yes</text>
+                <postback>career game</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no worries</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO WORRIES</pattern>
+        <template>No worries! Kenobi will take your leave. And whenever you are ready, just type 'Start' and Kenobi will be there to help you out!</template>
+    </category>
+   
+    <category>
+        <pattern>CAREER GAME</pattern>
+        <template>
+            Great! Let's play the career game. I will ask you a few questions, and based on your answers, I will suggest the best career path for you.<br/><br/>
+            LET'S BEGIN! <br/><br/>
+            <think><set name="coding">0</set><set name="designing">0</set><set name="programming">0</set><set name="data_analysis">0</set><set name="networking">0</set></think>
+            Are you a Computer Science Major (or already have a CS degree)?
+            <button>
+                <text>Yes</text>
+                <postback>yes cs</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no cs</postback>
+            </button>
+        </template>
+    </category>
+   
+   
+   
+    <category>
+        <pattern>YES CS</pattern>
+        <template>
+            Question 1 out of 5: Are you good at coding?
+            <button>
+                <text>Yes</text>
+                <postback>yes coding</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no coding</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO CS</pattern>
+        <template>This bot is focused on Computer Science majors only (or if you already have a CS degree). Enter 'Start' to retry.</template>
+        <button>
+            <text>Start</text>
+            <postback>start</postback>
+        </button>
+    </category>
+   
+   
+   
+    <!-- Question 1: Coding -->
+    <category>
+        <pattern>YES CODING</pattern>
+        <template>
+            <think><set name="coding">1</set></think>
+            Question 2 out of 5: Do you enjoy designing user interfaces?
+            <button>
+                <text>Yes</text>
+                <postback>yes designing</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no designing</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO CODING</pattern>
+        <template>
+            Question 2 out of 5: Do you enjoy designing user interfaces?
+            <button>
+                <text>Yes</text>
+                <postback>yes designing</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no designing</postback>
+            </button>
+        </template>
+    </category>
+
+    <!-- Question 2: Designing -->
+    <category>
+        <pattern>YES DESIGNING</pattern>
+        <template>
+            <think><set name="designing">1</set></think>
+            Question 3 out of 5: Do you like programming complex algorithms?
+            <button>
+                <text>Yes</text>
+                <postback>yes programming</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no programming</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO DESIGNING</pattern>
+        <template>
+            Question 3 out of 5: Do you like programming complex algorithms?
+            <button>
+                <text>Yes</text>
+                <postback>yes programming</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no programming</postback>
+            </button>
+        </template>
+    </category>
+   
+    <!-- Question 3: Programming -->
+    <category>
+        <pattern>YES PROGRAMMING</pattern>
+        <template>
+            <think><set name="programming">1</set></think>
+            Question 4 out of 5: Are you interested in analyzing data and finding patterns?
+            <button>
+                <text>Yes</text>
+                <postback>yes data analysis</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no data analysis</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO PROGRAMMING</pattern>
+        <template>
+            Question 4 out of 5: Are you interested in analyzing data and finding patterns?
+            <button>
+                <text>Yes</text>
+                <postback>yes data analysis</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no data analysis</postback>
+            </button>
+        </template>
+    </category>
+   
+    <!-- Question 4: Data Analysis -->
+    <category>
+        <pattern>YES DATA ANALYSIS</pattern>
+        <template>
+            <think><set name="data_analysis">1</set></think>
+            Question 5 out of 5: Do you enjoy working with networks and systems infrastructure?
+            <button>
+                <text>Yes</text>
+                <postback>yes networking</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no networking</postback>
+            </button>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO DATA ANALYSIS</pattern>
+        <template>
+            Question 5 out of 5: Do you enjoy working with networks and systems infrastructure?
+            <button>
+                <text>Yes</text>
+                <postback>yes networking</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>no networking</postback>
+            </button>
+        </template>
+    </category>
+   
+    <!-- Question 5: Networking -->
+    <category>
+        <pattern>YES NETWORKING</pattern>
+        <template>
+            <think><set name="networking">1</set></think>
+            Thank you for answering all the questions! Let me calculate the best career path for you...
+            <think><set name="state">calculate_career</set></think>
+            <srai>calculate career</srai>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>NO NETWORKING</pattern>
+        <template>
+            Thank you for answering all the questions! Let me calculate the best career path for you...
+            <think><set name="state">calculate_career</set></think>
+            <srai>calculate career</srai>
+        </template>
+    </category>
+   
+    <category>
+        <pattern>CALCULATE CAREER</pattern>
+        <template>
+            <condition>
+                <!-- Check if at least one "Yes" exists -->
+                <li name="coding" value="1">
+                    <condition name="programming">
+                        <li value="1">
+                            <br/><b>You would be a great Software Developer!</b> Your coding and programming skills make you perfect for this role.
+                        </li>
+                        <li value="0">
+                            <br/><b>You would excel as a Web Developer!</b> Your coding skills and creativity are ideal for building websites and applications.
+                        </li>
+                    </condition>
+                </li>
+                <li name="designing" value="1">
+                    <br/><b>You would be a fantastic UI/UX Designer!</b> Your design skills and creativity make you perfect for designing user interfaces.
+                </li>
+                <li name="data_analysis" value="1">
+                    <br/><b>You would be an amazing Data Scientist!</b> Your interest in analyzing data makes this career a great fit.
+                </li>
+                <li name="networking" value="1">
+                    <br/><b>You would excel as a Network Engineer!</b> Your interest in systems and infrastructure makes this role ideal for you.
+                </li>
+                <!-- If all answers are "No" -->
+                <li>
+                    <br/>You need to select "Yes" for at least one question to determine a suitable career path. Please try again by typing 'Start'!
+                </li>
+            </condition>
+        </template>
+    </category>
+</aiml>
